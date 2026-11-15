@@ -1,0 +1,17 @@
+:where(#portafolio) a{color:#FFFFFF;text-decoration:none}
+:where(#portafolio) a:focus-visible,:where(#portafolio) button:focus-visible{outline:2px solid #FFFFFF;outline-offset:4px}
+.pf-chip{transition:background-color .25s ease,color .25s ease,box-shadow .25s ease}
+.pf-chip:hover{box-shadow:inset 0 0 0 1px #FFFFFF !important}
+.pf-img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.pf-card:hover .pf-img{transform:scale(1.035)}
+.pf-card:hover .pf-flecha{transform:translate(4px,-4px)}
+.pf-flecha{display:inline-block;transition:transform .35s ease}
+.pf-btn{transition:background-color .25s ease,color .25s ease}
+.pf-btn:hover{background-color:#BF0603 !important;color:#FFFFFF !important}
+.pf-x:hover{background-color:#BF0603 !important}
+@keyframes pf-entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes pf-abre{from{opacity:0}to{opacity:1}}
+.pf-card{animation:pf-entra .6s ease-out both}
+.pf-modal{animation:pf-abre .35s ease-out both}
+.pf-modal[hidden]{display:none !important}
+@media (prefers-reduced-motion: reduce){.pf-card,.pf-modal{animation:none}.pf-img{transition:none}}

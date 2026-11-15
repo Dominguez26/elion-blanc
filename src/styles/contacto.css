@@ -1,0 +1,15 @@
+:where(#contacto) a{color:#111111}
+:where(#contacto) a:focus-visible,:where(#contacto) button:focus-visible,:where(#contacto) input:focus-visible{outline:2px solid #000000;outline-offset:4px}
+.ct-field{transition:box-shadow .2s ease}
+.ct-field:focus{outline:none;box-shadow:inset 0 -2px 0 #BF0603 !important}
+.ct-field::placeholder{color:#8A8A8A}
+.ct-btn{transition:background-color .25s ease}
+.ct-btn:hover{background-color:#BF0603 !important}
+.ct-chip{transition:background-color .25s ease,color .25s ease,box-shadow .25s ease}
+.ct-wa:hover{color:#BF0603}
+.ct-err[hidden]{display:none}
+.ct-btn[hidden]{display:none !important}
+@keyframes ct-sube{from{opacity:0;transform:translateY(0.35em)}to{opacity:1;transform:none}}
+.ct-w{display:inline-block;animation:ct-sube .9s cubic-bezier(.2,.7,.2,1) both}
+@supports (animation-timeline: view()){.ct-w{animation-duration:auto;animation-timing-function:linear;animation-timeline:view()}}
+@media (prefers-reduced-motion: reduce){.ct-w{animation:none}}

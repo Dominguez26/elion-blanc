@@ -1,0 +1,15 @@
+:where(#proceso) a:focus-visible,:where(#proceso) button:focus-visible{outline:2px solid #FFFFFF;outline-offset:6px}
+.pr-btn{transition:background-color .25s ease,color .25s ease}
+.pr-btn:hover{background-color:#BF0603 !important;color:#FFFFFF !important}
+.pr-paso{transition:opacity .35s ease}
+.pr-paso:hover .pr-tit{color:#FFFFFF !important}
+@keyframes pr-run{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pr-sube{from{opacity:0;transform:translateY(0.35em)}to{opacity:1;transform:none}}
+@keyframes pr-entra{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.pr-barra{transform-origin:0 50%}
+.pr-corre{animation:pr-run 6s linear both}
+.pr-w{display:inline-block;animation:pr-sube .9s cubic-bezier(.2,.7,.2,1) both}
+.pr-desc{animation:pr-entra .45s ease-out both}
+.pr-desc[hidden]{display:none !important}
+@supports (animation-timeline: view()){.pr-w{animation-duration:auto;animation-timing-function:linear;animation-timeline:view()}}
+@media (prefers-reduced-motion: reduce){.pr-corre,.pr-w,.pr-desc{animation:none}}

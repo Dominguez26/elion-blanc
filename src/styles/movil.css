@@ -1,0 +1,15 @@
+/* Ajustes para celular: botones centrados */
+@media (max-width: 760px){
+  .cta-fila{flex-direction:column !important;align-items:center !important;justify-content:center !important;align-self:stretch !important;text-align:center}
+  .hp-tags.cta-fila{flex-direction:row !important;flex-wrap:wrap !important}
+  .franja{flex-direction:column !important;align-items:center !important;justify-content:center !important;text-align:center}
+  .franja > p{text-align:center}
+  .pf-fila{flex-direction:column !important;align-items:flex-start !important}
+  .pf-fila > button,.pf-fila > a{align-self:center}
+  .redes-fila,#pf-chips{justify-content:center}
+}
+/* Teléfonos muy angostos (iPhone SE 1ª gen., 320 px): palabras largas no se salen */
+@media (max-width: 380px){
+  #proceso h2{font-size:clamp(34px,11.5vw,44px) !important}
+}
+h1,h2,h3{overflow-wrap:break-word}

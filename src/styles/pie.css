@@ -1,0 +1,9 @@
+:where(footer) a{color:#D8D3CB;text-decoration:none;transition:color .2s ease}
+:where(footer) a:hover{color:#FFFFFF}
+:where(footer) a:focus-visible{outline:1px solid #FFFFFF;outline-offset:4px}
+.pie-red{transition:background-color .25s ease,box-shadow .25s ease}
+.pie-red:hover{background-color:#BF0603 !important;box-shadow:none !important}
+.pie-btn:hover{background-color:#9A0502 !important;color:#FFFFFF !important}
+.pie-cta{transition:background-color .25s ease,color .25s ease}
+.pie-cta:hover{background-color:#BF0603 !important;color:#FFFFFF !important}
+.pie-link{display:inline-flex;align-items:center;min-height:44px}

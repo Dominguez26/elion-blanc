@@ -1,0 +1,11 @@
+:where(#fundador) a:focus-visible{outline:2px solid #000000;outline-offset:4px}
+.fd-red{transition:background-color .25s ease,color .25s ease,box-shadow .25s ease}
+.fd-red:hover{background-color:#BF0603 !important;color:#FFFFFF !important;box-shadow:none !important}
+@keyframes fd-sube{from{opacity:0;transform:translateY(0.35em)}to{opacity:1;transform:none}}
+@keyframes fd-vacio{from{color:#8F8A82}to{color:#E4E2DE}}
+@keyframes fd-luz{from{color:#C9C7C2}to{color:#000000}}
+.fd-w{display:inline-block;animation:fd-sube .9s cubic-bezier(.2,.7,.2,1) both}
+.fd-v{display:inline-block;color:#E4E2DE;animation:fd-vacio 1.4s ease-out both}
+.fd-l{color:#000000;animation:fd-luz .8s ease-out both}
+@supports (animation-timeline: view()){.fd-w,.fd-v,.fd-l{animation-duration:auto;animation-timing-function:linear;animation-timeline:view()}}
+@media (prefers-reduced-motion: reduce){.fd-w,.fd-v,.fd-l{animation:none}}

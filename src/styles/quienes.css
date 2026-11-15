@@ -1,0 +1,10 @@
+@keyframes qs-sube{from{opacity:0;transform:translateY(0.35em)}to{opacity:1;transform:none}}
+@keyframes qs-luz{from{color:#C9C7C2}to{color:#000000}}
+.qs-w{display:inline-block;animation:qs-sube .9s cubic-bezier(.2,.7,.2,1) both}
+.qs-l{color:#000000;animation:qs-luz .8s ease-out both}
+@supports (animation-timeline: view()){
+.qs-w{animation-duration:auto;animation-timing-function:linear;animation-timeline:view()}
+.qs-l{animation-duration:auto;animation-timing-function:linear;animation-timeline:view()}
+}
+@media (prefers-reduced-motion: reduce){.qs-w,.qs-l{animation:none}}
+@media (max-width: 760px){.qs-p{margin-left:0 !important}}

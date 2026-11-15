@@ -1,0 +1,22 @@
+:where(#servicios) a:focus-visible,:where(#servicios) button:focus-visible{outline:2px solid #000000;outline-offset:4px}
+.sv-btn{transition:background-color .25s ease}
+.sv-btn:hover{background-color:#BF0603 !important}
+.sv-pill{transition:transform .35s ease,box-shadow .35s ease,background-color .35s ease,color .35s ease}
+.sv-pill:hover,.sv-pill[aria-pressed="true"]{background-color:#BF0603 !important;color:#FFFFFF !important;box-shadow:0 10px 30px rgba(191,6,3,0.28) !important;transform:translate(-50%,calc(-50% - 2px))}
+@keyframes sv-sube{from{opacity:0;transform:translateY(0.35em)}to{opacity:1;transform:none}}
+@keyframes sv-luz{from{color:#BDBAB4}to{color:#000000}}
+@keyframes sv-flota{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.sv-w{display:inline-block;animation:sv-sube .9s cubic-bezier(.2,.7,.2,1) both}
+.sv-l{color:#000000;animation:sv-luz .8s ease-out both}
+.sv-flota{animation:sv-flota 6s ease-in-out infinite}
+@supports (animation-timeline: view()){
+.sv-w,.sv-l{animation-duration:auto;animation-timing-function:linear;animation-timeline:view()}
+}
+@media (prefers-reduced-motion: reduce){.sv-w,.sv-l,.sv-flota{animation:none}}
+@media (max-width: 760px){
+#sv-stage{height:auto !important;display:flex;flex-direction:column;align-items:center;gap:8px}
+#sv-canvas{position:relative !important;inset:auto !important;height:300px !important}
+.sv-orbita{position:static !important;display:flex !important;flex-wrap:wrap;justify-content:center;gap:10px}
+.sv-orbita > *{position:static !important;transform:none !important}
+.sv-pill:hover,.sv-pill[aria-pressed="true"]{transform:none !important}
+}
