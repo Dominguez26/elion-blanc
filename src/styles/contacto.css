@@ -13,3 +13,22 @@
 .ct-w{display:inline-block;animation:ct-sube .9s cubic-bezier(.2,.7,.2,1) both}
 @supports (animation-timeline: view()){.ct-w{animation-duration:auto;animation-timing-function:linear;animation-timeline:view()}}
 @media (prefers-reduced-motion: reduce){.ct-w{animation:none}}
+/* Teléfonos (< 768 px): sección más corta, sin quitar campos */
+@media (max-width: 767px){
+  .ct-cabeza > *{order:3}
+  .ct-cabeza > :nth-child(1){order:0}
+  .ct-cabeza > h2{order:1}
+  .ct-cabeza > .ct-wa{order:2;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:0 20px !important;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.3);font-size:16px !important;text-decoration:none !important}
+  .ct-cabeza > .ct-wa svg{width:20px;height:20px}
+  .ct-cabeza > .ct-wa:hover{box-shadow:inset 0 0 0 1px #BF0603}
+  #ct-form,#ct-form .ct-par{gap:12px !important}
+  #ct-form input.ct-field{box-sizing:border-box;min-height:56px !important}
+  #ct-form textarea.ct-field{box-sizing:border-box;min-height:88px !important;height:88px}
+  /* Espacios extra para llegar a 1,5 pantallas */
+  #contacto{--pad-seccion:24px}
+  #contacto > div{padding:24px 20px !important;gap:24px !important}
+  .ct-cabeza{gap:16px !important}
+  #ct-form label[for],#ct-form fieldset{gap:6px !important}
+  #ct-form > div,#ct-form .ct-par > div{gap:6px !important}
+  #ct-form legend{margin-bottom:8px !important}
+}

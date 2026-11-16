@@ -83,6 +83,9 @@ class Hero {
     this.R = this.tablet ? Math.min(this.w * 0.36, 290) : (this.movil ? this.w * 0.5 : Math.min(this.w * 0.29, this.h * 0.47));
     this.cx = this.movil ? this.w * 0.68 : Math.min(this.w * 0.79, this.w - this.R * 1.04);
     this.cy = this.tablet ? Math.min(this.R + 110, this.h * 0.36) : (this.movil ? Math.min(230, this.h * 0.28) : this.h * 0.5);
+    // Teléfonos (< 768 px): el hero mide una pantalla, así que la esfera se hace más compacta
+    // y sube, para que el texto y el botón entren sin hacer scroll.
+    if (this.w < 768) { this.R = Math.min(this.w * 0.42, this.h * 0.27); this.cy = this.h * 0.25; }
     this.ox = this.w * 0.5;
     this.oy = this.h + 20;
     return true;
