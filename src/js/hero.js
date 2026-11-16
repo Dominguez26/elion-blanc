@@ -30,7 +30,9 @@ class Hero {
     this.sprite = sp;
     this.tick = this.tick.bind(this);
 
-    this.onMove = (e) => { if (!this.box) return; this.mouse = { x: e.clientX - this.box.left, y: e.clientY - this.box.top }; };
+    // Los eventos que el navegador genera solo por el scroll (sin mover el mouse) se ignoran,
+    // para que la esfera no se abolle al volver al hero.
+    this.onMove = (e) => { if (!this.box) return; if (e.pointerType === 'mouse' && !e.movementX && !e.movementY) return; this.mouse = { x: e.clientX - this.box.left, y: e.clientY - this.box.top }; };
     this.onLeave = () => { this.mouse = null; };
     seccion.addEventListener('pointermove', this.onMove);
     seccion.addEventListener('pointerleave', this.onLeave);
@@ -38,14 +40,20 @@ class Hero {
     this.onScroll = () => { this.mouse = null; };
     window.addEventListener('scroll', this.onScroll, { passive: true });
 
-    this.quitarObs = observarVisibilidad(seccion, () => this.arrancar(), () => this.parar());
+    this.quitarObs = observarVisibilidad(seccion, () => { this.visible = true; this.arrancar(); }, () => { this.visible = false; this.parar(); });
+    // Pestaña oculta: se pausa el reloj igual que al salir del hero.
+    this.onVis = () => { if (document.hidden) this.parar(); else if (this.visible) this.arrancar(); };
+    document.addEventListener('visibilitychange', this.onVis);
     this.onHide = () => this.destroy();
     window.addEventListener('pagehide', this.onHide);
   }
   arrancar() {
     // Al volver al hero, el reloj continúa desde donde se pausó: así la esfera
     // no "salta" de golpe a otra posición y no se deforma mientras se reacomoda.
+    if (document.hidden) return;
     if (this.pausa) { this.t0 += performance.now() - this.pausa; this.pausa = 0; }
+    this.ultimo = 0;
+    this.mouse = null;
     if (!this.raf) this.raf = requestAnimationFrame(this.tick);
   }
   parar() {
@@ -57,6 +65,7 @@ class Hero {
     this.seccion.removeEventListener('pointermove', this.onMove);
     this.seccion.removeEventListener('pointerleave', this.onLeave);
     window.removeEventListener('pagehide', this.onHide);
+    document.removeEventListener('visibilitychange', this.onVis);
     window.removeEventListener('scroll', this.onScroll);
   }
   medir() {
@@ -298,6 +307,10 @@ class Hero {
   }
   tick(now) {
     this.raf = requestAnimationFrame(this.tick);
+    // Si el navegador congeló la animación (pestaña en segundo plano, bloqueo), el reloj
+    // no avanza ese tiempo: así la esfera no salta ni se deforma al reacomodarse.
+    if (this.ultimo && now - this.ultimo > 100) this.t0 += now - this.ultimo - 16;
+    this.ultimo = now;
     if (!this.medir()) return;
     const ctx = this.cv.getContext('2d');
     const t = (now - this.t0) / 1000;
