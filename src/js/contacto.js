@@ -45,12 +45,12 @@ export function initContacto() {
     });
     estilo(chipWeb, s.web);
     estilo(chipIA, s.ia);
-    const msg = 'Hola, Elion Blanc. Quiero solicitar un diagnóstico.\n\n'
+    const msg = 'Hola, Elion Blanc. Quiero pedir mi diagnóstico gratis.\n\n'
       + 'Nombre: ' + d.nombre + '\n'
       + 'Negocio: ' + d.negocio + '\n'
       + 'Rubro: ' + d.rubro + '\n'
       + 'Me interesa: ' + d.intereses.join(' y ') + '\n'
-      + 'Lo que necesito: ' + d.dolor + '\n\n'
+      + 'Quiero mejorar: ' + d.dolor + '\n\n'
       + 'Acepto la Política de privacidad.';
     enviar.href = WA + encodeURIComponent(msg);
     enviar.hidden = !listo;

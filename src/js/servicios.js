@@ -1,7 +1,7 @@
 import { observarVisibilidad, prefiereReducir } from './utils.js';
 
 const PIEZAS = [
-  { detalle: 'Tus productos a pantalla completa, para que den ganas de pedir.' },
+  { detalle: 'Tu carta con fotos y precios, a pantalla completa.' },
   { detalle: 'El cliente arma su pedido y te llega listo a tu WhatsApp.' },
   { detalle: 'Tus mesas con un código que abre tu carta al instante.' },
   { detalle: 'Que te encuentren cuando buscan en Google o le preguntan a ChatGPT.' }

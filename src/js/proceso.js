@@ -1,9 +1,9 @@
 import { observarVisibilidad, prefiereReducir } from './utils.js';
 
 const DATOS = [
-  { estado: 'El punto de partida: lo que hoy está desordenado.' },
-  { estado: 'Ponemos orden: un plan claro para tu negocio.' },
-  { estado: 'Tu ecosistema, completo y en movimiento.' }
+  { estado: 'Nos cuentas qué necesita tu negocio.' },
+  { estado: 'Ordenamos todo en una propuesta clara.' },
+  { estado: 'Tu web lista para recibir pedidos.' }
 ];
 
 class Proceso {
