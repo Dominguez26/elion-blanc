@@ -8,3 +8,4 @@
 }
 @media (prefers-reduced-motion: reduce){.qs-w,.qs-l{animation:none}}
 @media (max-width: 760px){.qs-p{margin-left:0 !important}}
+@media (max-width: 767px){#quienes-somos > div{min-height:0 !important}}

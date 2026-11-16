@@ -7,3 +7,7 @@
 .pie-cta{transition:background-color .25s ease,color .25s ease}
 .pie-cta:hover{background-color:#BF0603 !important;color:#FFFFFF !important}
 .pie-link{display:inline-flex;align-items:center;min-height:44px}
+@media (max-width: 767px){
+.pie-nav{display:grid !important;grid-template-columns:1fr 1fr;column-gap:16px}
+.pie-nav > p{grid-column:1 / -1}
+}
